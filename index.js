@@ -1,9 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
 const app = express();
 
 app.use(
@@ -15,15 +12,9 @@ app.use(
 app.use(express.json());
 
 const personRoutes = require('./routes/personRoutes');
+const authRouter = require('./routes/authRoutes');
 app.use('/person', personRoutes);
-
-app.post('/auth/register', async (req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
-    if (!name) {
-        return res.status(422).json({ message: 'O nome é obrigatório' });
-    }
-});
-
+app.use('/auth', authRouter);
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
 mongoose
