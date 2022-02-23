@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const User = mongoose.model('User', {
+const Person = mongoose.model('Person', {
     name: String,
     job: String,
     github: String,
@@ -8,4 +8,4 @@ const User = mongoose.model('User', {
     approved: Boolean,
 });
 
-module.exports = User;
+module.exports = Person;
