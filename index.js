@@ -12,7 +12,7 @@ app.use(
 
 app.use(express.json());
 app.use(cors());
-
+app.listen(process.env.PORT || 3000);
 const personRoutes = require('./routes/personRoutes');
 const authRouter = require('./routes/authRoutes');
 app.use('/person', personRoutes);
