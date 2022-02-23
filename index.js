@@ -19,6 +19,9 @@ app.use('/person', personRoutes);
 app.use('/auth', authRouter);
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
+console.log(
+    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.cainp.mongodb.net/personsapi?retryWrites=true&w=majority`,
+);
 mongoose
     .connect(
         `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.cainp.mongodb.net/personsapi?retryWrites=true&w=majority`,
