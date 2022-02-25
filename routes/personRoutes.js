@@ -17,7 +17,7 @@ function checkToken(req, res, next) {
     }
 }
 router.post('/', checkToken, async (req, res) => {
-    const { name, job, github, profession, linkedin, description } = req.body;
+    const { name, avatar, job, github, profession, linkedin, description } = req.body;
     if (!name) {
         res.status(422).json({ error: 'O nome é obrigatório' });
         return;
@@ -33,6 +33,9 @@ router.post('/', checkToken, async (req, res) => {
     } else if (!description) {
         res.status(422).json({ error: 'A descrição é obrigatório' });
         return;
+    } else if (!avatar) {
+        res.status(422).json({ error: 'O avatar é obrigatório' });
+        return;
     } else if (!linkedin) {
         res.status(422).json({ error: 'O linkedin é obrigatório' });
         return;
@@ -44,6 +47,7 @@ router.post('/', checkToken, async (req, res) => {
         profession,
         linkedin,
         description,
+        avatar,
     };
     try {
         await Person.create(person);
@@ -78,7 +82,7 @@ router.get('/:id', checkToken, async (req, res) => {
 
 router.patch('/:id', checkToken, async (req, res) => {
     const id = req.params.id;
-    const { name, job, github, profession, linkedin, description } = req.body;
+    const { name, avatar, job, github, profession, linkedin, description } = req.body;
     const person = {
         name,
         job,
@@ -86,6 +90,7 @@ router.patch('/:id', checkToken, async (req, res) => {
         profession,
         linkedin,
         description,
+        avatar,
     };
     try {
         const updatePerson = await Person.updateOne({ _id: id }, person);
