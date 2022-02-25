@@ -36,8 +36,17 @@ router.post('/', checkToken, async (req, res) => {
     } else if (!avatar) {
         res.status(422).json({ error: 'O avatar é obrigatório' });
         return;
+    } else if (!avatar.includes('http')) {
+        res.status(422).json({ error: 'url do avatar é inválida' });
+        return;
     } else if (!linkedin) {
         res.status(422).json({ error: 'O linkedin é obrigatório' });
+        return;
+    } else if (!github.includes('https://github.com/')) {
+        res.status(422).json({ error: 'url do github é inválida' });
+        return;
+    } else if (!linkedin.includes('https://www.linkedin.com/')) {
+        res.status(422).json({ error: 'url do linkedin é inválida' });
         return;
     }
     const person = {
