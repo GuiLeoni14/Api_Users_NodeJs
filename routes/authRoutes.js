@@ -65,8 +65,7 @@ router.post('/login', async (req, res) => {
             },
             secret,
         );
-        user = await User.findById(user._id, '-password'); // 
-        created by me
+        user = await User.findById(user._id, '-password'); // created by me
         res.status(200).json({ message: 'Autenticação realizada com sucesso', token, user });
     } catch (error) {
         return res.status(500).json({ error: 'Error inesperado no servidor' });
