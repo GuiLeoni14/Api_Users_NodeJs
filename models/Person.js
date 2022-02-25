@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 
 const Person = mongoose.model('Person', {
     name: String,
-    job: String,
+    profession: String,
     github: String,
-    phone: String,
-    approved: Boolean,
+    linkedin: String,
+    job: String,
+    description: String,
 });
 
 module.exports = Person;
