@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
         return res.status(422).json({ error: 'A senha é obrigatória' });
     }
 
-    const user = await User.findOne({ email: email });
+    let user = await User.findOne({ email: email });
     if (!user) {
         return res.status(404).json({ error: 'Usuário não encontrado!' });
     }
@@ -57,7 +57,6 @@ router.post('/login', async (req, res) => {
     if (!checkPassword) {
         return res.status(422).json({ error: 'Senha inválida!' });
     }
-
     try {
         const secret = process.env.SECRET;
         const token = jwt.sign(
@@ -66,7 +65,9 @@ router.post('/login', async (req, res) => {
             },
             secret,
         );
-        res.status(200).json({ message: 'Autenticação realizada com sucesso', token });
+        user = await User.findById(user._id, '-password'); // 
+        created by me
+        res.status(200).json({ message: 'Autenticação realizada com sucesso', token, user });
     } catch (error) {
         return res.status(500).json({ error: 'Error inesperado no servidor' });
     }
