@@ -17,12 +17,9 @@ function checkToken(req, res, next) {
     }
 }
 router.post('/', checkToken, async (req, res) => {
-    const { name, avatar, job, github, profession, linkedin, description } = req.body;
+    const { name, avatar, job, github, linkedin, description } = req.body;
     if (!name) {
         res.status(422).json({ error: 'O nome é obrigatório' });
-        return;
-    } else if (!profession) {
-        res.status(422).json({ error: 'A profissão é obrigatória' });
         return;
     } else if (!job) {
         res.status(422).json({ error: 'O job é obrigatório' });
@@ -53,7 +50,6 @@ router.post('/', checkToken, async (req, res) => {
         name,
         job,
         github,
-        profession,
         linkedin,
         description,
         avatar,
@@ -91,12 +87,11 @@ router.get('/:id', checkToken, async (req, res) => {
 
 router.patch('/:id', checkToken, async (req, res) => {
     const id = req.params.id;
-    const { name, avatar, job, github, profession, linkedin, description } = req.body;
+    const { name, avatar, job, github, linkedin, description } = req.body;
     const person = {
         name,
         job,
         github,
-        profession,
         linkedin,
         description,
         avatar,
