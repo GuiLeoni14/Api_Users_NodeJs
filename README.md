@@ -1,5 +1,5 @@
 # Api_Users_NodeJs
-Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar um API Rest com Nodejs com autenticação.
+Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma API Rest com Nodejs implementando autenticação.
 - Esse projeto tem ligação com: https://github.com/GuiLeoni14/Users_ReactJs
 > Status: Completed ⚠️
 
