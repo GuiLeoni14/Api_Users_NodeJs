@@ -4,7 +4,7 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma A
 > Status: Completed ⚠️
 
 ## Objetivo:
-+ Desenvolver uma API Rest que: busque, crie, atualize, e delete, uma lista de usuários servindo múltiplos clientes.
++ Desenvolver uma API Rest que: busque, crie, atualize, e delete uma lista de usuários servindo múltiplos clientes.
 + Fazer a comunicação entre frond-end(Reactjs) e back-end(NodeJs).
 + Login/Register/Logout de usuários.
 + Gerenciamento de registros(CREATE,UPDATE,DELETE).
@@ -15,9 +15,9 @@ na aplicação e criação de uma API REST com Node.
 
 ## Instalação
 + Confira as variáveis de ambiente necessárias contidas em no arquivo ".env.example"
-- `git clone https://github.com/GuiLeoni14/Api_Users_NodeJs .`
-- npm install || yarn install
-- node index.jsx || node start(nodemon) 
+- `git clone` https://github.com/GuiLeoni14/Api_Users_NodeJs .
+- `npm install` || `yarn install`
+- `node index.jsx` || `node start`(nodemon) 
 
 ## Tecnologias usadas:
 
