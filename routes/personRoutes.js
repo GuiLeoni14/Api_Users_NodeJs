@@ -102,7 +102,7 @@ router.patch('/:id', checkToken, async (req, res) => {
             res.status(422).json({ error: 'Usuário não encontrado' });
             return;
         }
-        res.status(200).json(person);
+        res.status(200).json({ message: 'Usuário inserido com sucesso', person });
     } catch (error) {
         res.status(500).json({ error: error });
     }
