@@ -56,7 +56,7 @@ router.post('/', checkToken, async (req, res) => {
     };
     try {
         await Person.create(person);
-        res.status(201).json({ message: 'Usuário inserido com sucesso' });
+        res.status(201).json({ message: 'Registro inserido com sucesso' });
     } catch (error) {
         res.status(500).json({ error: error });
     }
@@ -76,7 +76,7 @@ router.get('/:id', checkToken, async (req, res) => {
     try {
         const person = await Person.findOne({ _id: id });
         if (!person) {
-            res.status(422).json({ message: 'Usuário não encontrado' });
+            res.status(422).json({ message: 'Registro não encontrado' });
             return;
         }
         res.status(200).json(person);
@@ -99,10 +99,10 @@ router.patch('/:id', checkToken, async (req, res) => {
     try {
         const updatePerson = await Person.updateOne({ _id: id }, person);
         if (updatePerson.matchedCount === 0) {
-            res.status(422).json({ error: 'Usuário não encontrado' });
+            res.status(422).json({ error: 'Registro não encontrado' });
             return;
         }
-        res.status(200).json({ message: 'Usuário inserido com sucesso', person });
+        res.status(200).json({ message: 'Registro editado com sucesso', person });
     } catch (error) {
         res.status(500).json({ error: error });
     }
@@ -113,11 +113,11 @@ router.delete('/:id', checkToken, async (req, res) => {
     try {
         const person = await Person.findOne({ _id: id });
         if (!person) {
-            res.status(422).json({ error: 'Usuário não encontrado' });
+            res.status(422).json({ error: 'Registro não encontrado' });
             return;
         }
         await Person.deleteOne({ _id: id });
-        res.status(200).json({ message: 'Usuário deletado com sucesso' });
+        res.status(200).json({ message: 'Registro deletado com sucesso' });
     } catch (error) {
         res.status(500).json({ error: error });
     }
