@@ -13,9 +13,9 @@ Desafio proposto na comunidade da Rafaela Ballerini, com objetivo de criar uma A
 + Ao finalizar este projeto, pratiquei diversos conceitos relacionados Nodejs, principalmente o ecossistema que envolve a autenticação de usuários
 na aplicação e criação de uma API REST com Node.
 
-##Instalação
+## Instalação
 + Confira as variáveis de ambiente necessárias contidas em no arquivo ".env.example"
-- git clone https://github.com/GuiLeoni14/Api_Users_NodeJs .
+- `git clone https://github.com/GuiLeoni14/Api_Users_NodeJs .`
 - npm install || yarn install
 - node index.jsx || node start(nodemon) 
 
