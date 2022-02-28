@@ -17,7 +17,7 @@ na aplicação e criação de uma API REST com Node.
 + Confira as variáveis de ambiente necessárias contidas no arquivo ".env.example"
 - `git clone` https://github.com/GuiLeoni14/Api_Users_NodeJs .
 - `npm install` || `yarn install`
-- `node index.jsx` || `node start`(nodemon) 
+- `node index.js` || `node start`(nodemon) 
 
 ## Tecnologias usadas:
 
