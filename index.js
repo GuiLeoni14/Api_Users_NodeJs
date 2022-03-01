@@ -12,7 +12,6 @@ app.use(
 
 app.use(express.json());
 app.use(cors());
-app.listen(process.env.PORT || 3000);
 const personRoutes = require('./routes/personRoutes');
 const authRouter = require('./routes/authRoutes');
 app.use('/person', personRoutes);
@@ -25,6 +24,6 @@ mongoose
     )
     .then(() => {
         console.log('Conectado com sucesso');
-        app.listen(3000);
+        app.listen(process.env.PORT || 3000);
     })
     .catch((err) => console.log(err));
